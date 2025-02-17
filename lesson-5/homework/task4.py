@@ -1,3 +1,27 @@
+def enrollment_stats(lst):
+    total_students=sum([raw[1] for raw in lst])
+    total_fee=sum([raw[2] for raw in lst])
+    print(f'Total students: {total_students}')
+    print(f'Total tuition: $ {total_fee}')
+
+def mean(lst):
+    student_mean=sum([raw[1] for raw in lst])/len(lst)
+    fee_mean=sum([raw[2] for raw in lst])/len(lst)
+    print(f'Student mean: {round(student_mean,2)}')
+    print(f'Tuition mean: $ {round(fee_mean,2)}')
+
+def median(lst):
+    students=sorted([raw[1] for raw in lst])
+    fees=sorted([raw[2] for raw in lst])
+    if len(lst)%2 == 0:
+       student_median=(students[int(len(lst)/2-1)] + students[int(len(lst)/2)]) /2
+       fee_median=(fees[int(len(lst)/2-1)] + fees[int(len(lst)/2)]) /2
+    else:
+        student_median=students[int((len(lst)-1)/2)]
+        fee_median=fees[int((len(lst)-1)/2)]
+    print(f'Student median: {round(student_median,2)}')
+    print(f'Tuition median: $ {round(fee_median,2)}')
+
 universities = [
     ['California Institute of Technology', 2175, 37704],
     ['Harvard', 19627, 39849],
@@ -7,30 +31,7 @@ universities = [
     ['Stanford', 19535, 40569],
     ['Yale', 11701, 40500]
 ]
-n=len(universities)
 
-def enrollment_stats():
-    return [[student,fee] for univ, student, fee in universities]
-students=[enrollment_stats()[i][0] for i in range(n)]
-fees=[enrollment_stats()[i][1] for i in range(n)]
-
-def mean(a):
-    return sum(a)/n
- 
-def median(a):
-    a.sort()
-    if n%2==0:
-        median1=a[n//2]
-        median2=a[n//2-1]
-        return (median1+median2)/2
-    else:
-        return a[n//2]
-
-print("Total students: ",sum(enrollment_stats()[i][0] for i in range(n)))
-print("Total tuition: ",sum(enrollment_stats()[i][1] for i in range(n)))
-print("__________")
-print("Student mean: ", round(mean(students),2))
-print("Student median: ", round(median(students),2))
-print("__________")
-print("Tuition mean: ", round(mean(fees),2))
-print("Tuition median: ", round(median(fees),2))
+enrollment_stats(universities)
+mean(universities)
+median(universities)
