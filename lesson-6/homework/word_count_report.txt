@@ -1,0 +1,7 @@
+Total number of words: 41
+Top 5 most common words:
+a: 5
+text: 3
+is: 2
+of: 2
+or: 2
