@@ -2,3 +2,4 @@
 1001, Pakhlavon, teacher, 1500
 1000, Akbar, IT, 2500
 1006, Odil, qwer, 1234
+1001, Shaxzod, teacher, 1000
